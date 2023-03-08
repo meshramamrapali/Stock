@@ -1,37 +1,30 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class StockPortfolio {
-    double totalValue;
-    int noOfStocks;
-    Scanner scr = new Scanner(System.in);
-    ArrayList<StockPortfolio> list = new ArrayList<>();
+    StockPortfolio st = new StockPortfolio();
+    Account account = new Account(140000);
+    Scanner scanner = new Scanner(System.in);
 
-
-    public StockPortfolio() {
-    }
-
-    void stockPortfolio() {
-
-        System.out.println("Enter no of stocks");
-        noOfStocks = scr.nextInt();
-
-        for (int i = 0; i <noOfStocks; i++) {
-            StockPortfolio stock = new StockPortfolio();
-            System.out.println("Enter stock name");
-            stock.setStockName(scr.next());
-            System.out.println("Enter number of shares");
-            stock.setNoOfShares(scr.nextInt());
-            System.out.println("Enter each share price");
-            stock.setSharePrice( scr.nextDouble());
-            list.add(stock);
-            double stockValue = stock.getNoOfShares()*stock.getSharePrice();
-            totalValue+=stockValue;
+    boolean exit = true;
+        while(exit) {
+        System.out.println("Enter \n1)To add stock\n2)to display stock\n3)debit from account\n4)exit");
+        int Choice = scanner.nextInt();
+        switch (Choice) {
+            case 1:
+                st.stockPortfolio();
+                break;
+            case 2:
+                st.display();
+                break;
+            case 3:
+                account.debit(st.totalValue);
+                break;
+            case 4:
+                exit = false;
+                break;
+            default:
+                break;
         }
     }
-    void display(){
-        for(StockPortfolio stock : list){
-            System.out.println(stock);
-        }
-    }
+}
 }
