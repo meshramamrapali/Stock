@@ -1,7 +1,6 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-public class StockPortfolio {
-    StockPortfolio st = new StockPortfolio();
+public class StockManager {
+    StockManager st = new StockManager();
     Account account = new Account(140000);
     Scanner scanner = new Scanner(System.in);
 
